@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOTI | Digital Creative Agency</title>
+    <meta name="description" content="Web tasarımı, fullstack geliştirme ve mobil oyun alanında dijital dünyayı şekillendiren kreatif ajans.">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor" id="cursor"></div>
+
+    <!-- ======= NAV ======= -->
+    <nav id="navbar" class="fixed top-0 w-full z-50 px-8 py-5 flex justify-between items-center">
+        <div class="text-2xl font-extrabold tracking-tighter uppercase text-white">MOTI</div>
+        <button
+            id="nav-toggle"
+            class="nav-toggle"
+            type="button"
+            aria-label="Menüyü aç"
+            aria-expanded="false"
+            aria-controls="nav-menu"
+        >
+            <i data-lucide="menu-2" class="w-5 h-5"></i>
+        </button>
+        <div id="nav-menu" class="nav-menu flex gap-8 text-sm font-medium uppercase tracking-widest text-white/60">
+            <a href="#services" class="nav-link">Hizmetler</a>
+            <a href="#games" class="nav-link">Etki</a>
+            <a href="#work" class="nav-link">İşler</a>
+            <a href="#pricing" class="nav-link">Paketler</a>
+            <a href="#contact" class="nav-link cta-link">Teklif Al</a>
+        </div>
+    </nav>
+
+    <!-- ======= HERO ======= -->
+    <section id="hero" class="h-screen flex flex-col justify-center items-center relative overflow-hidden px-4">
+        <div class="hero-glow"></div>
+        <div class="hero-glow-2"></div>
+
+        <p class="hero-tagline reveal-up">Dijital Dünyanın Mimarları</p>
+
+        <h1 id="hero-title" class="text-7xl md:text-[9rem] font-extrabold tracking-tighter text-center z-10 leading-none mt-4">
+            <span class="block">MOTI</span>
+        </h1>
+
+        <p class="mt-8 text-base md:text-lg text-white/50 text-center max-w-lg z-10 font-light reveal-up" style="--delay: 0.8s">
+            Web siteleri, mobil oyunlar ve dijital stratejilerle markanızı geleceğe taşıyoruz.
+        </p>
+
+        <div class="flex gap-4 mt-10 z-10 reveal-up" style="--delay: 1s">
+            <a href="#contact" class="btn-primary">Proje Başlat</a>
+            <a href="#work" class="btn-ghost">İşlerimizi Gör</a>
+        </div>
+
+        <div class="absolute bottom-10 scroll-hint">
+            <i data-lucide="mouse" class="w-5 h-5 opacity-30"></i>
+        </div>
+    </section>
+
+    <!-- ======= STATS ======= -->
+    <section id="stats" class="py-24 px-8 border-y border-white/5">
+        <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
+            <div class="stat-item">
+                <div class="text-5xl font-black gradient-text" data-count="50">0</div>
+                <div class="text-sm text-white/40 uppercase tracking-widest mt-2">Tamamlanan Proje</div>
+            </div>
+            <div class="stat-item">
+                <div class="text-5xl font-black gradient-text" data-count="30">0</div>
+                <div class="text-sm text-white/40 uppercase tracking-widest mt-2">Mutlu Müşteri</div>
+            </div>
+            <div class="stat-item">
+                <div class="text-5xl font-black gradient-text" data-count="8">0</div>
+                <div class="text-sm text-white/40 uppercase tracking-widest mt-2">Mobil Oyun</div>
+            </div>
+            <div class="stat-item">
+                <div class="text-5xl font-black gradient-text" data-count="5">0</div>
+                <div class="text-sm text-white/40 uppercase tracking-widest mt-2">Yıl Tecrübe</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======= SERVICES ======= -->
+    <section id="services" class="py-32 px-8 bg-zinc-950">
+        <div class="max-w-6xl mx-auto">
+            <div class="section-header">
+                <span class="section-label">Hizmetler</span>
+                <h2 class="section-title">Ne Sunuyoruz?</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+                <div class="service-card gsap-reveal">
+                    <div class="service-icon"><i data-lucide="layout" class="w-7 h-7"></i></div>
+                    <h3 class="text-2xl font-bold mb-3 mt-5">Web Design</h3>
+                    <p class="text-white/40 font-light text-sm leading-relaxed">GSAP animasyonları ve modern UI ile kullanıcıyı büyüleyen dijital deneyimler.</p>
+                    <div class="service-arrow"><i data-lucide="arrow-right" class="w-4 h-4"></i></div>
+                </div>
+                <div class="service-card gsap-reveal">
+                    <div class="service-icon"><i data-lucide="cpu" class="w-7 h-7"></i></div>
+                    <h3 class="text-2xl font-bold mb-3 mt-5">Fullstack Dev</h3>
+                    <p class="text-white/40 font-light text-sm leading-relaxed">React, Next.js ve Node.js ile hızlı, ölçeklenebilir ve güvenli dijital ürünler.</p>
+                    <div class="service-arrow"><i data-lucide="arrow-right" class="w-4 h-4"></i></div>
+                </div>
+                <div class="service-card gsap-reveal">
+                    <div class="service-icon"><i data-lucide="gamepad-2" class="w-7 h-7"></i></div>
+                    <h3 class="text-2xl font-bold mb-3 mt-5">Mobil Oyun</h3>
+                    <p class="text-white/40 font-light text-sm leading-relaxed">iOS ve Android için özgün, bağımlılık yapan mobil oyun deneyimleri geliştiriyoruz.</p>
+                    <div class="service-arrow"><i data-lucide="arrow-right" class="w-4 h-4"></i></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======= PROCESS ======= -->
+    <section id="process" class="py-32 px-8 bg-black">
+        <div class="max-w-5xl mx-auto">
+            <div class="section-header">
+                <span class="section-label">Süreç</span>
+                <h2 class="section-title">Nasıl Çalışıyoruz?</h2>
+            </div>
+
+            <div class="mt-20 space-y-0">
+                <div class="process-step gsap-reveal">
+                    <div class="process-num">01</div>
+                    <div class="process-content">
+                        <h3>Keşif & Strateji</h3>
+                        <p>Hedeflerinizi, kitlenizi ve rekabeti analiz ederek en doğru yol haritasını çıkarıyoruz.</p>
+                    </div>
+                    <i data-lucide="search" class="process-icon"></i>
+                </div>
+                <div class="process-step gsap-reveal">
+                    <div class="process-num">02</div>
+                    <div class="process-content">
+                        <h3>Tasarım & Prototip</h3>
+                        <p>Figma üzerinde pixel-perfect UI tasarımları ve interaktif prototipler hazırlıyoruz.</p>
+                    </div>
+                    <i data-lucide="pen-tool" class="process-icon"></i>
+                </div>
+                <div class="process-step gsap-reveal">
+                    <div class="process-num">03</div>
+                    <div class="process-content">
+                        <h3>Geliştirme</h3>
+                        <p>Modern teknolojiler ve temiz kod ile tasarımı gerçeğe dönüştürüyoruz.</p>
+                    </div>
+                    <i data-lucide="code-2" class="process-icon"></i>
+                </div>
+                <div class="process-step gsap-reveal">
+                    <div class="process-num">04</div>
+                    <div class="process-content">
+                        <h3>Lansman & Destek</h3>
+                        <p>Ürününüzü yayına alıyor, büyümesini izliyor ve sürekli destek sağlıyoruz.</p>
+                    </div>
+                    <i data-lucide="rocket" class="process-icon"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======= IMPACT STATEMENT ======= -->
+    <section id="games" class="py-32 px-8">
+        <div class="impact-noise"></div>
+        <div class="impact-orb impact-orb-left"></div>
+        <div class="impact-orb impact-orb-right"></div>
+        <div class="max-w-5xl mx-auto">
+            <div class="impact-panel">
+                <span class="impact-kicker">Etki</span>
+                <h2 class="impact-line">Gorunmek yetmez, iz birakmak gerekir.</h2>
+            </div>
+        </div>
+    </section>
+    <!-- ======= PORTFOLIO (Horizontal Scroll) ======= -->
+    <section id="work" class="overflow-hidden bg-white text-black">
+        <div class="portfolio-progress">
+            <span id="portfolio-progress-bar"></span>
+        </div>
+        <div class="whitespace-nowrap flex gap-16 items-center px-16 h-screen" id="portfolio-track">
+            <header class="portfolio-intro flex-shrink-0">
+                <h2 class="text-[6rem] font-black tracking-tighter opacity-[0.08] leading-none">PROJELER</h2>
+           </header>
+
+            <div class="portfolio-card flex-shrink-0 w-[380px] h-[480px] bg-zinc-100">
+                <div class="portfolio-overlay"></div>
+                <div class="portfolio-tag">Web Design</div>
+                <div class="portfolio-info">
+                    <p class="portfolio-title">Project Alpha</p>
+                    <p class="portfolio-sub">E-Ticaret Platformu</p>
+                </div>
+            </div>
+
+            <div class="portfolio-card flex-shrink-0 w-[380px] h-[480px] bg-zinc-200">
+                <div class="portfolio-overlay"></div>
+                <div class="portfolio-tag">Branding</div>
+                <div class="portfolio-info">
+                    <p class="portfolio-title">Modern Identity</p>
+                    <p class="portfolio-sub">Kurumsal Kimlik</p>
+                </div>
+            </div>
+
+            <div class="portfolio-card flex-shrink-0 w-[480px] h-[480px] bg-zinc-300">
+                <div class="portfolio-overlay"></div>
+                <div class="portfolio-tag">Mobile Game</div>
+                <div class="portfolio-info">
+                    <p class="portfolio-title">Color Maze</p>
+                    <p class="portfolio-sub">Bulmaca Oyunu · iOS & Android</p>
+                </div>
+            </div>
+
+            <div class="portfolio-card flex-shrink-0 w-[380px] h-[480px] bg-zinc-100">
+                <div class="portfolio-overlay"></div>
+                <div class="portfolio-tag">Fullstack</div>
+                <div class="portfolio-info">
+                    <p class="portfolio-title">Creative Motion</p>
+                    <p class="portfolio-sub">SaaS Dashboard</p>
+                </div>
+            </div>
+
+            <div class="portfolio-card flex-shrink-0 w-[380px] h-[480px] bg-zinc-200">
+                <div class="portfolio-overlay"></div>
+                <div class="portfolio-tag">Mobile Game</div>
+                <div class="portfolio-info">
+                    <p class="portfolio-title">Word Rush</p>
+                    <p class="portfolio-sub">Kelime Oyunu · iOS & Android</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ======= PRICING ======= -->
+    <section id="pricing" class="py-32 px-8 bg-black">
+        <div class="max-w-6xl mx-auto">
+            <div class="section-header">
+                <span class="section-label">Paketler</span>
+                <h2 class="section-title">Şeffaf Fiyatlandırma</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
+                <!-- Starter -->
+                <div class="pricing-card gsap-reveal">
+                    <div class="pricing-tier">Starter</div>
+                    <div class="pricing-price">₺<span>15.000</span></div>
+                    <div class="pricing-desc">Küçük işletmeler ve bireysel girişimciler için.</div>
+                    <ul class="pricing-features">
+                        <li><i data-lucide="check" class="w-4 h-4"></i> 5 Sayfa Web Sitesi</li>
+                        <li><i data-lucide="check" class="w-4 h-4"></i> Mobil Uyumlu Tasarım</li>
+                        <li><i data-lucide="check" class="w-4 h-4"></i> İletişim Formu</li>
+                        <li><i data-lucide="check" class="w-4 h-4"></i> SEO Temel Optimizasyon</li>
+                        <li class="opacity-30"><i data-lucide="x" class="w-4 h-4"></i> GSAP Animasyonları</li>
+                        <li class="opacity-30"><i data-lucide="x" class="w-4 h-4"></i> CMS Entegrasyonu</li>
+                    </ul>
+                    <a href="#contact" class="pricing-btn pricing-btn-ghost price_button_bg">Teklif Al</a>
+                </div>
+
+                <!-- Pro (popular) -->
+                <div class="pricing-card pricing-popular gsap-reveal">
+                    <div class="popular-badge">En Çok Tercih</div>
+                    <div class="pricing-tier">Pro</div>
+                    <div class="pricing-price">₺<span>35.000</span></div>
+                    <div class="pricing-desc">Büyümek isteyen markalar için tam kapsamlı çözüm.</div>
+                    <ul class="pricing-features">
+                        <li><i data-lucide="check" class="w-4 h-4"></i> 10 Sayfa Web Sitesi</li>
+                        <li><i data-lucide="check" class="w-4 h-4"></i> GSAP Premium Animasyonlar</li>
+                        <li><i data-lucide="check" class="w-4 h-4"></i> CMS Entegrasyonu</li>
+                        <li><i data-lucide="check" class="w-4 h-4"></i> E-Ticaret (opsiyonel)</li>
+                        <li><i data-lucide="check" class="w-4 h-4"></i> 3 Ay Destek</li>
+                        <li><i data-lucide="check" class="w-4 h-4"></i> SEO + Analytics</li>
+                    </ul>
+                    <a href="#contact" class="pricing-btn pricing-btn-primary ">Teklif Al</a>
+                </div>
+
+                <!-- Enterprise -->
+                <div class="pricing-card gsap-reveal">
+                    <div class="pricing-tier">Enterprise</div>
+                    <div class="pricing-price">Özel<span class="text-2xl"> Fiyat</span></div>
+                    <div class="pricing-desc">Mobil oyun geliştirme ve büyük ölçekli projeler.</div>
+                    <ul class="pricing-features">
+                        <li><i data-lucide="check" class="w-4 h-4"></i> Sınırsız Sayfa</li>
+                        <li><i data-lucide="check" class="w-4 h-4"></i> Mobil Oyun Geliştirme</li>
+                        <li><i data-lucide="check" class="w-4 h-4"></i> App Store & Play Yükleme</li>
+                        <li><i data-lucide="check" class="w-4 h-4"></i> Fullstack Backend</li>
+                        <li><i data-lucide="check" class="w-4 h-4"></i> 12 Ay Destek</li>
+                        <li><i data-lucide="check" class="w-4 h-4"></i> Öncelikli Destek</li>
+                    </ul>
+                    <a href="#contact" class="pricing-btn pricing-btn-ghost">Görüşelim</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======= TESTIMONIALS ======= -->
+    <section id="testimonials" class="py-32 px-8 bg-zinc-950">
+        <div class="max-w-6xl mx-auto">
+            <div class="section-header">
+                <span class="section-label">Referanslar</span>
+                <h2 class="section-title">Müşterilerimiz Ne Diyor?</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+                <div class="testimonial-card gsap-reveal">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"Sculpt ekibi projemizi tam istediğimiz gibi hayata geçirdi. Hem hız hem kalite açısından beklentilerimizi fazlasıyla karşıladılar."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">AY</div>
+                        <div>
+                            <div class="font-bold">Ahmet Yılmaz</div>
+                            <div class="text-white/40 text-sm">CEO, TechStart TR</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card gsap-reveal">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"Mobil oyunumuzu App Store'a çıkarmak hiç bu kadar kolay olmamıştı. Süreç boyunca her adımda yanımızdaydılar."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">MK</div>
+                        <div>
+                            <div class="font-bold">Merve Kaya</div>
+                            <div class="text-white/40 text-sm">Kurucu, PlayLab Studio</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card gsap-reveal">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"Kurumsal web sitemizin yenilenmesi sonrası müşteri dönüşüm oranımız %40 arttı. Gerçekten işini bilen bir ekip."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">SO</div>
+                        <div>
+                            <div class="font-bold">Selim Öztürk</div>
+                            <div class="text-white/40 text-sm">Pazarlama Müdürü, Nova Digital</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======= CONTACT ======= -->
+    <section id="contact" class="py-32 px-8 bg-black">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="section-header">
+                <span class="section-label">İletişim</span>
+            </div>
+            <h2 class="text-5xl md:text-7xl font-bold mt-4 mb-6 tracking-tighter">
+                HADİ <span class="gradient-text italic font-light">BAŞLAYALIM.</span>
+            </h2>
+            <p class="text-white/40 mb-12">Projeniz hakkında bize yazın, 24 saat içinde dönelim.</p>
+
+            <form id="contact-form" action="https://formspree.io/f/YOUR_ID" method="POST" class="text-left grid grid-cols-1 gap-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <input type="text" name="name" placeholder="Adınız / Şirketiniz" required class="form-input">
+                    <input type="email" name="email" placeholder="E-posta Adresiniz" required class="form-input">
+                </div>
+                <select name="service" class="form-input">
+                    <option value="" disabled selected>Hizmet Türü Seçin</option>
+                    <option value="web">Web Tasarım & Geliştirme</option>
+                    <option value="game">Mobil Oyun Geliştirme</option>
+                    <option value="brand">Kurumsal Kimlik</option>
+                    <option value="other">Diğer</option>
+                </select>
+                <textarea name="message" rows="4" placeholder="Projenizden bahsedin..." required class="form-input resize-none"></textarea>
+                <button type="submit" id="submit-btn" class="btn-primary w-full py-6 text-xl">Teklif İste</button>
+            </form>
+            <div id="form-status" class="mt-8 hidden p-6 rounded-2xl border border-blue-500/30 bg-blue-500/10 text-blue-400 text-xl font-bold">
+                ✅ Mesajınız iletildi! En kısa sürede dönüş yapacağız.
+            </div>
+        </div>
+    </section>
+
+    <!-- ======= FOOTER ======= -->
+    <footer class="py-12 px-8 border-t border-white/5">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-2xl font-extrabold tracking-tighter">Sculpt.</div>
+            <div class="flex gap-8 text-sm text-white/30 uppercase tracking-widest">
+                <a href="#services" class="hover:text-white/70 transition-colors">Hizmetler</a>
+                <a href="#games" class="hover:text-white/70 transition-colors">Etki</a>
+                <a href="#pricing" class="hover:text-white/70 transition-colors">Paketler</a>
+                <a href="#contact" class="hover:text-white/70 transition-colors">İletişim</a>
+            </div>
+            <p class="text-white/20 text-sm">&copy; 2026 THE SCULPT.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
