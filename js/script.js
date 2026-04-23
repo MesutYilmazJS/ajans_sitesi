@@ -252,7 +252,6 @@ mm.add("(prefers-reduced-motion: no-preference)", () => {
     };
 
     revealHeader("#services");
-    revealHeader("#process");
     revealHeader("#pricing", { y: 42 });
     revealHeader("#testimonials", { y: 42 });
     revealHeader("#contact", { y: 46 });
@@ -306,13 +305,14 @@ mm.add("(prefers-reduced-motion: no-preference)", () => {
             duration: 0.45,
         }, 0.28);
 
-    gsap.timeline({
-        scrollTrigger: {
-            trigger: "#process",
-            start: "top 74%",
-            once: true,
-        }
-    })
+    const processTimeline = gsap.timeline({ paused: true })
+        .from("#process .section-header", {
+            y: 36,
+            opacity: 0,
+            filter: "blur(8px)",
+            duration: 0.8,
+            ease: "power3.out",
+        }, 0)
         .from("#process .process-step", {
             xPercent: (index) => index % 2 === 0 ? -10 : 10,
             opacity: 0,
@@ -332,6 +332,14 @@ mm.add("(prefers-reduced-motion: no-preference)", () => {
             stagger: 0.14,
             duration: 0.55,
         }, 0.2);
+
+    ScrollTrigger.create({
+        trigger: "#process",
+        start: "top 74%",
+        invalidateOnRefresh: true,
+        onEnter: () => processTimeline.restart(),
+        onEnterBack: () => processTimeline.restart(),
+    });
 
     const impactSection = document.querySelector("#games");
     const impactLine = impactSection?.querySelector(".impact-line");
