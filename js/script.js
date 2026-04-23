@@ -131,55 +131,13 @@ if (navbar) {
 }
 
 if (heroSection && !prefersReducedMotion.matches) {
-    const heroGlow = heroSection.querySelector('.hero-glow');
-    const heroGlowSecondary = heroSection.querySelector('.hero-glow-2');
     const heroButtons = heroSection.querySelectorAll('.btn-primary, .btn-ghost');
-    const heroResetTargets = [heroGlow, heroGlowSecondary, "#hero-title", ...heroButtons].filter(Boolean);
-
-    if (heroGlow) {
-        gsap.to(heroGlow, {
-            xPercent: 6,
-            yPercent: -8,
-            duration: 6,
-            repeat: -1,
-            yoyo: true,
-            ease: "sine.inOut",
-        });
-    }
-
-    if (heroGlowSecondary) {
-        gsap.to(heroGlowSecondary, {
-            xPercent: -8,
-            yPercent: 10,
-            duration: 7.5,
-            repeat: -1,
-            yoyo: true,
-            ease: "sine.inOut",
-        });
-    }
+    const heroResetTargets = [ "#hero-title", ...heroButtons].filter(Boolean);
 
     heroSection.addEventListener('mousemove', (e) => {
         const { left, top, width, height } = heroSection.getBoundingClientRect();
         const x = (e.clientX - left) / width - 0.5;
         const y = (e.clientY - top) / height - 0.5;
-
-        if (heroGlow) {
-            gsap.to(heroGlow, {
-                x: x * 30,
-                y: y * 24,
-                duration: 0.8,
-                overwrite: "auto",
-            });
-        }
-
-        if (heroGlowSecondary) {
-            gsap.to(heroGlowSecondary, {
-                x: x * -24,
-                y: y * -18,
-                duration: 0.9,
-                overwrite: "auto",
-            });
-        }
 
         gsap.to("#hero-title", {
             x: x * 18,
@@ -514,12 +472,27 @@ mm.add("(prefers-reduced-motion: no-preference)", () => {
             stagger: 0.12,
             duration: 0.9,
         }, 0.12)
-        .from("#pricing .pricing-tier, #pricing .pricing-price, #pricing .pricing-desc, #pricing .pricing-features li, #pricing .pricing-btn", {
+        .from("#pricing .pricing-tier, #pricing .pricing-price, #pricing .pricing-desc, #pricing .pricing-features li", {
             y: 18,
             opacity: 0,
             stagger: 0.025,
             duration: 0.42,
-        }, 0.24);
+        }, 0.24)
+        .from("#pricing .pricing-btn", {
+            y: 14,
+            opacity: 0,
+            duration: 0.45,
+            stagger: 0.12,
+        }, 0.34);
+
+    // Safety: if any nested pricing elements get stuck at opacity:0 (e.g. due to scroll quirks),
+    // force buttons visible once the section is in view.
+    ScrollTrigger.create({
+        trigger: "#pricing",
+        start: "top 85%",
+        onEnter: () => gsap.set("#pricing .pricing-btn", { autoAlpha: 1, clearProps: "transform" }),
+        onEnterBack: () => gsap.set("#pricing .pricing-btn", { autoAlpha: 1, clearProps: "transform" }),
+    });
 
     gsap.timeline({
         scrollTrigger: {
