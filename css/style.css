@@ -936,23 +936,27 @@ body.nav-open {
     to { opacity: 1; transform: translateY(0); }
 }
 
-@media (max-width: 1023px), (prefers-reduced-motion: reduce) {
+@media (max-width: 1023px) {
     #work {
-        padding: 5rem 1.5rem;
+        padding: 0;
+        overflow: hidden;
     }
 
     .portfolio-progress {
-        display: none;
+        display: block;
     }
 
     #portfolio-track {
-        width: 100%;
-        min-width: 0;
-        height: auto !important;
-        display: grid !important;
+        width: max-content;
+        min-width: 100%;
+        height: 100svh !important;
+        display: flex !important;
         gap: 1.5rem !important;
-        padding: 0 !important;
-        white-space: normal !important;
+        padding: 0 max(1.5rem, 9vw) !important;
+        white-space: nowrap !important;
+        overflow: visible;
+        align-items: center;
+        touch-action: auto;
     }
 
     .portfolio-intro h2 {
@@ -962,8 +966,13 @@ body.nav-open {
     }
 
     .portfolio-intro {
-        width: 100%;
+        width: min(24rem, calc(100vw - 3rem));
+        min-height: 360px;
+        flex: 0 0 auto;
         gap: 0.75rem;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
     }
 
     .portfolio-lead {
@@ -971,9 +980,10 @@ body.nav-open {
     }
 
     #portfolio-track > .portfolio-card {
-        width: 100% !important;
-        max-width: 100%;
+        width: min(84vw, 22rem) !important;
+        max-width: none;
         height: 360px !important;
+        flex: 0 0 auto;
     }
 
     .impact-panel {

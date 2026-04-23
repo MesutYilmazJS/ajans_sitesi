@@ -591,8 +591,11 @@ const portfolioProgressBar = document.getElementById('portfolio-progress-bar');
 if (track && workSection) {
     const portfolioCards = gsap.utils.toArray('.portfolio-card');
 
-    mm.add("(min-width: 1024px) and (prefers-reduced-motion: no-preference)", () => {
-        const getScrollEndBuffer = () => Math.max(window.innerWidth * 0.28, 220);
+    mm.add("(prefers-reduced-motion: no-preference)", () => {
+        const isDesktop = () => window.innerWidth >= 1024;
+        const getScrollEndBuffer = () => isDesktop()
+            ? Math.max(window.innerWidth * 0.28, 220)
+            : Math.max(window.innerWidth * 0.18, 120);
         const getScrollDist = () => Math.max(0, track.scrollWidth - workSection.clientWidth);
         const getTotalScrollDist = () => getScrollDist() + getScrollEndBuffer();
         const getSnapPoints = () => {
@@ -610,18 +613,18 @@ if (track && workSection) {
             }
         })
             .from(".portfolio-intro > *", {
-                x: -48,
+                x: () => isDesktop() ? -48 : -28,
                 opacity: 0,
                 stagger: 0.08,
-                duration: 0.75,
+                duration: () => isDesktop() ? 0.75 : 0.6,
             }, 0.05)
             .from(portfolioCards, {
-                x: 90,
-                y: 40,
+                x: () => isDesktop() ? 90 : 52,
+                y: () => isDesktop() ? 40 : 24,
                 opacity: 0,
-                rotateY: (index) => index % 2 === 0 ? -12 : 12,
+                rotateY: (index) => isDesktop() ? (index % 2 === 0 ? -12 : 12) : 0,
                 stagger: 0.12,
-                duration: 0.95,
+                duration: () => isDesktop() ? 0.95 : 0.72,
                 ease: "power3.out",
             }, 0.14);
 
@@ -661,9 +664,9 @@ if (track && workSection) {
             const overlay = card.querySelector('.portfolio-overlay');
 
             gsap.fromTo(card, {
-                rotateZ: index % 2 === 0 ? -1.2 : 1.2,
+                rotateZ: isDesktop() ? (index % 2 === 0 ? -1.2 : 1.2) : 0,
             }, {
-                rotateZ: index % 2 === 0 ? 1.2 : -1.2,
+                rotateZ: isDesktop() ? (index % 2 === 0 ? 1.2 : -1.2) : 0,
                 ease: "none",
                 scrollTrigger: {
                     trigger: card,
@@ -739,7 +742,7 @@ if (track && workSection) {
         };
     });
 
-    mm.add("(max-width: 1023px), (prefers-reduced-motion: reduce)", () => {
+    mm.add("(prefers-reduced-motion: reduce)", () => {
         gsap.set(track, { clearProps: "transform" });
         if (portfolioProgressBar) {
             gsap.set(portfolioProgressBar, { clearProps: "all" });
