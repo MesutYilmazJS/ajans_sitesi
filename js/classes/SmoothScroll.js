@@ -8,7 +8,6 @@ export default class SmoothScroll {
             duration: 1.1,
             lerp: 0.08,
             wheelMultiplier: 1.0,
-            smoothTouch: true, // Enable Lenis on mobile devices
             infinite: false,
         });
 
