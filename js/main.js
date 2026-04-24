@@ -18,9 +18,10 @@ class App {
     }
 
     initGSAP() {
+        if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+        
         gsap.registerPlugin(ScrollTrigger);
         
-        // Prevent pinning glitches when mobile address bar hides/shows
         ScrollTrigger.config({ 
             ignoreMobileResize: true 
         });

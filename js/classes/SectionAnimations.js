@@ -5,16 +5,16 @@ export default class SectionAnimations {
     }
 
     init() {
-        this.mm.add("(prefers-reduced-motion: no-preference)", () => {
-            this.initReveals();
-            this.initStats();
-            this.initServices();
-            this.initProcess();
-            this.initImpact();
-            this.initPricing();
-            this.initContact();
-        });
+        // Run animations by default
+        this.initReveals();
+        this.initStats();
+        this.initServices();
+        this.initProcess();
+        this.initImpact();
+        this.initPricing();
+        this.initContact();
 
+        // Only reset if user explicitly PREFERS reduced motion
         this.mm.add("(prefers-reduced-motion: reduce)", () => {
             gsap.set(".gsap-reveal, .process-step, .section-header, .game-card, .pricing-card, .testimonial-card", {
                 opacity: 1,
