@@ -93,7 +93,6 @@ export default class Portfolio {
                 pin: true,
                 anticipatePin: 1,
                 scrub: 1,
-                pinType: "transform", // Added for Lenis smooth scroll compatibility on mobile
                 fastScrollEnd: true,
                 start: "top top",
                 end: () => `+=${Math.max(getTotalScrollDist(), 1)}`,
@@ -186,8 +185,6 @@ export default class Portfolio {
                     }
                 });
             }
-        });
-    }
         });
     }
 }
