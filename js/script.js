@@ -116,15 +116,16 @@ if (navToggle && navMenu) {
 
 if (navbar) {
     gsap.to(navbar, {
-        backgroundColor: "rgba(5,5,5,0.88)",
-        borderBottomColor: "rgba(255,255,255,0.08)",
-        paddingTop: 14,
-        paddingBottom: 14,
+        paddingTop: "0.5rem",
+        paddingBottom: "0.5rem",
+        backgroundColor: "rgba(var(--rgb-bg), 0.85)",
+        borderColor: "rgba(var(--rgb-text), 0.1)",
+        boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
         ease: "none",
         scrollTrigger: {
             trigger: document.body,
-            start: "top top",
-            end: "+=220",
+            start: "top -50",
+            end: "+=150",
             scrub: true,
         }
     });

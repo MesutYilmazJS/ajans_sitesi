@@ -34,34 +34,39 @@
     <div class="custom-cursor" id="cursor"></div>
 
     <!-- ======= NAV ======= -->
-    <nav id="navbar" class="fixed top-0 w-full z-50 px-8 py-5 flex justify-between items-center">
-        <div class="text-2xl font-extrabold tracking-tighter uppercase text-white">MOTI</div>
-        <div class="flex items-center gap-6">
-            <div id="nav-menu" class="nav-menu flex gap-8 text-sm font-medium uppercase tracking-widest text-white/60">
-                <a href="#services" class="nav-link">Hizmetler</a>
-                <a href="#games" class="nav-link">Etki</a>
-                <a href="#work" class="nav-link">İşler</a>
-                <a href="#pricing" class="nav-link">Paketler</a>
-                <a href="#contact" class="nav-link cta-link">Teklif Al</a>
+    <div class="fixed top-0 inset-x-0 z-50 px-4 py-4 md:py-6 pointer-events-none flex justify-center">
+        <nav id="navbar" class="pointer-events-auto w-full max-w-6xl px-6 py-4 flex justify-between items-center bg-white/70 dark:bg-black/50 backdrop-blur-xl border border-black/5 dark:border-white/10 rounded-2xl md:rounded-full shadow-lg transition-all duration-300">
+            <a href="#" class="text-2xl font-extrabold tracking-tighter uppercase text-zinc-900 dark:text-white transition-colors">MOTI</a>
+            
+            <div class="flex items-center gap-4 md:gap-8">
+                <div id="nav-menu" class="nav-menu flex gap-8 text-sm font-semibold uppercase tracking-widest text-zinc-600 dark:text-zinc-400">
+                    <a href="#services" class="nav-link">Hizmetler</a>
+                    <a href="#games" class="nav-link">Etki</a>
+                    <a href="#work" class="nav-link">İşler</a>
+                    <a href="#pricing" class="nav-link">Paketler</a>
+                    <a href="#contact" class="nav-link cta-link !text-blue-500">Teklif Al</a>
+                </div>
+
+                <div class="flex items-center gap-2">
+                    <button id="theme-toggle" class="nav-toggle !flex" aria-label="Tema Değiştir">
+                        <i data-lucide="sun" class="w-5 h-5 hidden dark:block text-zinc-900 dark:text-white"></i>
+                        <i data-lucide="moon" class="w-5 h-5 block dark:hidden text-zinc-900 dark:text-white"></i>
+                    </button>
+
+                    <button
+                        id="nav-toggle"
+                        class="nav-toggle md:hidden"
+                        type="button"
+                        aria-label="Menüyü aç"
+                        aria-expanded="false"
+                        aria-controls="nav-menu"
+                    >
+                        <i data-lucide="menu-2" class="w-5 h-5 text-zinc-900 dark:text-white"></i>
+                    </button>
+                </div>
             </div>
-
-            <button id="theme-toggle" class="nav-toggle !flex" aria-label="Tema Değiştir">
-                <i data-lucide="sun" class="w-5 h-5 hidden dark:block"></i>
-                <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
-            </button>
-
-            <button
-                id="nav-toggle"
-                class="nav-toggle"
-                type="button"
-                aria-label="Menüyü aç"
-                aria-expanded="false"
-                aria-controls="nav-menu"
-            >
-                <i data-lucide="menu-2" class="w-5 h-5"></i>
-            </button>
-        </div>
-    </nav>
+        </nav>
+    </div>
 
     <!-- ======= HERO ======= -->
     <section id="hero" class="h-screen flex flex-col justify-center items-center relative overflow-hidden px-4">
