@@ -19,6 +19,12 @@ class App {
 
     initGSAP() {
         gsap.registerPlugin(ScrollTrigger);
+        
+        // Prevent pinning glitches when mobile address bar hides/shows
+        ScrollTrigger.config({ 
+            ignoreMobileResize: true 
+        });
+
         gsap.defaults({
             ease: "power3.out",
             duration: 0.9,
