@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="tr" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +13,20 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <link rel="stylesheet" href="css/style.css">
+
+    <script>
+        if (localStorage.theme === 'light') {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {}
+            }
+        }
+    </script>
 </head>
 <body>
 
@@ -22,22 +36,30 @@
     <!-- ======= NAV ======= -->
     <nav id="navbar" class="fixed top-0 w-full z-50 px-8 py-5 flex justify-between items-center">
         <div class="text-2xl font-extrabold tracking-tighter uppercase text-white">MOTI</div>
-        <button
-            id="nav-toggle"
-            class="nav-toggle"
-            type="button"
-            aria-label="Menüyü aç"
-            aria-expanded="false"
-            aria-controls="nav-menu"
-        >
-            <i data-lucide="menu-2" class="w-5 h-5"></i>
-        </button>
-        <div id="nav-menu" class="nav-menu flex gap-8 text-sm font-medium uppercase tracking-widest text-white/60">
-            <a href="#services" class="nav-link">Hizmetler</a>
-            <a href="#games" class="nav-link">Etki</a>
-            <a href="#work" class="nav-link">İşler</a>
-            <a href="#pricing" class="nav-link">Paketler</a>
-            <a href="#contact" class="nav-link cta-link">Teklif Al</a>
+        <div class="flex items-center gap-6">
+            <div id="nav-menu" class="nav-menu flex gap-8 text-sm font-medium uppercase tracking-widest text-white/60">
+                <a href="#services" class="nav-link">Hizmetler</a>
+                <a href="#games" class="nav-link">Etki</a>
+                <a href="#work" class="nav-link">İşler</a>
+                <a href="#pricing" class="nav-link">Paketler</a>
+                <a href="#contact" class="nav-link cta-link">Teklif Al</a>
+            </div>
+
+            <button id="theme-toggle" class="nav-toggle !flex" aria-label="Tema Değiştir">
+                <i data-lucide="sun" class="w-5 h-5 hidden dark:block"></i>
+                <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
+            </button>
+
+            <button
+                id="nav-toggle"
+                class="nav-toggle"
+                type="button"
+                aria-label="Menüyü aç"
+                aria-expanded="false"
+                aria-controls="nav-menu"
+            >
+                <i data-lucide="menu-2" class="w-5 h-5"></i>
+            </button>
         </div>
     </nav>
 
@@ -50,7 +72,7 @@
             <span class="block">MOTI</span>
         </h1>
 
-        <p class="mt-8 text-base md:text-lg text-white/50 text-center max-w-lg z-10 font-light reveal-up" style="--delay: 0.8s">
+        <p class="mt-8 text-base md:text-lg text-zinc-900/50 dark:text-white/50 text-center max-w-lg z-10 font-light reveal-up" style="--delay: 0.8s">
             Web siteleri, mobil oyunlar ve dijital stratejilerle markanızı geleceğe taşıyoruz.
         </p>
 
@@ -65,29 +87,29 @@
     </section>
 
     <!-- ======= STATS ======= -->
-    <section id="stats" class="py-24 px-8 border-y border-white/5">
+    <section id="stats" class="py-24 px-8 border-y border-black/5 dark:border-white/5">
         <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
             <div class="stat-item">
                 <div class="text-5xl font-black gradient-text" data-count="50">0</div>
-                <div class="text-sm text-white/40 uppercase tracking-widest mt-2">Tamamlanan Proje</div>
+                <div class="text-sm text-zinc-900/40 dark:text-white/40 uppercase tracking-widest mt-2">Tamamlanan Proje</div>
             </div>
             <div class="stat-item">
                 <div class="text-5xl font-black gradient-text" data-count="30">0</div>
-                <div class="text-sm text-white/40 uppercase tracking-widest mt-2">Mutlu Müşteri</div>
+                <div class="text-sm text-zinc-900/40 dark:text-white/40 uppercase tracking-widest mt-2">Mutlu Müşteri</div>
             </div>
             <div class="stat-item">
                 <div class="text-5xl font-black gradient-text" data-count="8">0</div>
-                <div class="text-sm text-white/40 uppercase tracking-widest mt-2">Mobil Oyun</div>
+                <div class="text-sm text-zinc-900/40 dark:text-white/40 uppercase tracking-widest mt-2">Mobil Oyun</div>
             </div>
             <div class="stat-item">
                 <div class="text-5xl font-black gradient-text" data-count="5">0</div>
-                <div class="text-sm text-white/40 uppercase tracking-widest mt-2">Yıl Tecrübe</div>
+                <div class="text-sm text-zinc-900/40 dark:text-white/40 uppercase tracking-widest mt-2">Yıl Tecrübe</div>
             </div>
         </div>
     </section>
 
     <!-- ======= SERVICES ======= -->
-    <section id="services" class="py-32 px-8 bg-zinc-950">
+    <section id="services" class="py-32 px-8 bg-zinc-50 dark:bg-zinc-950">
         <div class="max-w-6xl mx-auto">
             <div class="section-header">
                 <span class="section-label">Hizmetler</span>
@@ -98,19 +120,19 @@
                 <div class="service-card gsap-reveal">
                     <div class="service-icon"><i data-lucide="layout" class="w-7 h-7"></i></div>
                     <h3 class="text-2xl font-bold mb-3 mt-5">Web Design</h3>
-                    <p class="text-white/40 font-light text-sm leading-relaxed">GSAP animasyonları ve modern UI ile kullanıcıyı büyüleyen dijital deneyimler.</p>
+                    <p class="text-zinc-900/40 dark:text-white/40 font-light text-sm leading-relaxed">GSAP animasyonları ve modern UI ile kullanıcıyı büyüleyen dijital deneyimler.</p>
                     <div class="service-arrow"><i data-lucide="arrow-right" class="w-4 h-4"></i></div>
                 </div>
                 <div class="service-card gsap-reveal">
                     <div class="service-icon"><i data-lucide="cpu" class="w-7 h-7"></i></div>
                     <h3 class="text-2xl font-bold mb-3 mt-5">Fullstack Dev</h3>
-                    <p class="text-white/40 font-light text-sm leading-relaxed">React, Next.js ve Node.js ile hızlı, ölçeklenebilir ve güvenli dijital ürünler.</p>
+                    <p class="text-zinc-900/40 dark:text-white/40 font-light text-sm leading-relaxed">React, Next.js ve Node.js ile hızlı, ölçeklenebilir ve güvenli dijital ürünler.</p>
                     <div class="service-arrow"><i data-lucide="arrow-right" class="w-4 h-4"></i></div>
                 </div>
                 <div class="service-card gsap-reveal">
                     <div class="service-icon"><i data-lucide="gamepad-2" class="w-7 h-7"></i></div>
                     <h3 class="text-2xl font-bold mb-3 mt-5">Mobil Oyun</h3>
-                    <p class="text-white/40 font-light text-sm leading-relaxed">iOS ve Android için özgün, bağımlılık yapan mobil oyun deneyimleri geliştiriyoruz.</p>
+                    <p class="text-zinc-900/40 dark:text-white/40 font-light text-sm leading-relaxed">iOS ve Android için özgün, bağımlılık yapan mobil oyun deneyimleri geliştiriyoruz.</p>
                     <div class="service-arrow"><i data-lucide="arrow-right" class="w-4 h-4"></i></div>
                 </div>
             </div>
@@ -118,7 +140,7 @@
     </section>
 
     <!-- ======= PROCESS ======= -->
-    <section id="process" class="py-32 px-8 bg-black">
+    <section id="process" class="py-32 px-8 bg-white dark:bg-black">
         <div class="max-w-5xl mx-auto">
             <div class="section-header">
                 <span class="section-label">Süreç</span>
@@ -163,7 +185,7 @@
     </section>
 
     <!-- ======= IMPACT STATEMENT ======= -->
-    <section id="games" class="py-32 px-8">
+    <section id="games" class="py-32 px-8 text-white">
         <div class="impact-noise"></div>
         <div class="impact-orb impact-orb-left"></div>
         <div class="impact-orb impact-orb-right"></div>
@@ -233,7 +255,7 @@
 
 
     <!-- ======= PRICING ======= -->
-    <section id="pricing" class="py-32 px-8 bg-black">
+    <section id="pricing" class="py-32 px-8 bg-white dark:bg-black">
         <div class="max-w-6xl mx-auto">
             <div class="section-header">
                 <span class="section-label">Paketler</span>
@@ -294,7 +316,7 @@
     </section>
 
     <!-- ======= TESTIMONIALS ======= -->
-    <section id="testimonials" class="py-32 px-8 bg-zinc-950">
+    <section id="testimonials" class="py-32 px-8 bg-zinc-50 dark:bg-zinc-950">
         <div class="max-w-6xl mx-auto">
             <div class="section-header">
                 <span class="section-label">Referanslar</span>
@@ -309,7 +331,7 @@
                         <div class="testimonial-avatar">AY</div>
                         <div>
                             <div class="font-bold">Ahmet Yılmaz</div>
-                            <div class="text-white/40 text-sm">CEO, TechStart TR</div>
+                            <div class="text-zinc-900/40 dark:text-white/40 text-sm">CEO, TechStart TR</div>
                         </div>
                     </div>
                 </div>
@@ -320,7 +342,7 @@
                         <div class="testimonial-avatar">MK</div>
                         <div>
                             <div class="font-bold">Merve Kaya</div>
-                            <div class="text-white/40 text-sm">Kurucu, PlayLab Studio</div>
+                            <div class="text-zinc-900/40 dark:text-white/40 text-sm">Kurucu, PlayLab Studio</div>
                         </div>
                     </div>
                 </div>
@@ -331,7 +353,7 @@
                         <div class="testimonial-avatar">SO</div>
                         <div>
                             <div class="font-bold">Selim Öztürk</div>
-                            <div class="text-white/40 text-sm">Pazarlama Müdürü, Nova Digital</div>
+                            <div class="text-zinc-900/40 dark:text-white/40 text-sm">Pazarlama Müdürü, Nova Digital</div>
                         </div>
                     </div>
                 </div>
@@ -340,7 +362,7 @@
     </section>
 
     <!-- ======= CONTACT ======= -->
-    <section id="contact" class="py-32 px-8 bg-black">
+    <section id="contact" class="py-32 px-8 bg-white dark:bg-black">
         <div class="max-w-4xl mx-auto text-center">
             <div class="section-header">
                 <span class="section-label">İletişim</span>
@@ -348,7 +370,7 @@
             <h2 class="text-5xl md:text-7xl font-bold mt-4 mb-6 tracking-tighter">
                 HADİ <span class="gradient-text italic font-light">BAŞLAYALIM.</span>
             </h2>
-            <p class="text-white/40 mb-12">Projeniz hakkında bize yazın, 24 saat içinde dönelim.</p>
+            <p class="text-zinc-900/40 dark:text-white/40 mb-12">Projeniz hakkında bize yazın, 24 saat içinde dönelim.</p>
 
             <form id="contact-form" action="https://formspree.io/f/YOUR_ID" method="POST" class="text-left grid grid-cols-1 gap-6">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -372,16 +394,16 @@
     </section>
 
     <!-- ======= FOOTER ======= -->
-    <footer class="py-12 px-8 border-t border-white/5">
+    <footer class="py-12 px-8 border-t border-black/5 dark:border-white/5">
         <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
             <div class="text-2xl font-extrabold tracking-tighter">MOTI</div>
-            <div class="flex gap-8 text-sm text-white/30 uppercase tracking-widest">
-                <a href="#services" class="hover:text-white/70 transition-colors">Hizmetler</a>
-                <a href="#games" class="hover:text-white/70 transition-colors">Etki</a>
-                <a href="#pricing" class="hover:text-white/70 transition-colors">Paketler</a>
-                <a href="#contact" class="hover:text-white/70 transition-colors">İletişim</a>
+            <div class="flex gap-8 text-sm text-zinc-900/30 dark:text-white/30 uppercase tracking-widest">
+                <a href="#services" class="hover:text-zinc-900/70 dark:hover:text-white/70 transition-colors">Hizmetler</a>
+                <a href="#games" class="hover:text-zinc-900/70 dark:hover:text-white/70 transition-colors">Etki</a>
+                <a href="#pricing" class="hover:text-zinc-900/70 dark:hover:text-white/70 transition-colors">Paketler</a>
+                <a href="#contact" class="hover:text-zinc-900/70 dark:hover:text-white/70 transition-colors">İletişim</a>
             </div>
-            <p class="text-white/20 text-sm">&copy; 2026 MOTI.</p>
+            <p class="text-zinc-900/20 dark:text-white/20 text-sm">&copy; 2026 MOTI.</p>
         </div>
     </footer>
 

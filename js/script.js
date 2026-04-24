@@ -952,3 +952,20 @@ lucide.createIcons();
 window.addEventListener('load', () => {
     ScrollTrigger.refresh();
 });
+
+// ============================================================
+// 10. Theme Toggle
+// ============================================================
+const themeToggleBtn = document.getElementById('theme-toggle');
+const htmlEl = document.documentElement;
+
+if (themeToggleBtn) {
+    themeToggleBtn.addEventListener('click', () => {
+        htmlEl.classList.toggle('dark');
+        if (htmlEl.classList.contains('dark')) {
+            localStorage.theme = 'dark';
+        } else {
+            localStorage.theme = 'light';
+        }
+    });
+}
