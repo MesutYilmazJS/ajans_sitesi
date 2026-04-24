@@ -12,7 +12,6 @@ export default class SectionAnimations {
             this.initProcess();
             this.initImpact();
             this.initPricing();
-            this.initTestimonials();
             this.initContact();
         });
 
@@ -307,30 +306,6 @@ export default class SectionAnimations {
             onEnter: () => gsap.set("#pricing .pricing-btn", { autoAlpha: 1, clearProps: "transform" }),
             onEnterBack: () => gsap.set("#pricing .pricing-btn", { autoAlpha: 1, clearProps: "transform" }),
         });
-    }
-
-    initTestimonials() {
-        gsap.timeline({
-            scrollTrigger: {
-                trigger: "#testimonials",
-                start: "top 72%",
-                once: true,
-            }
-        })
-            .from("#testimonials .testimonial-card", {
-                x: (index) => index === 1 ? 0 : index === 0 ? -60 : 60,
-                y: 32,
-                opacity: 0,
-                rotate: (index) => index === 1 ? 0 : index === 0 ? -2 : 2,
-                stagger: 0.12,
-                duration: 0.82,
-            }, 0.12)
-            .from("#testimonials .testimonial-stars, #testimonials .testimonial-text, #testimonials .testimonial-author", {
-                y: 16,
-                opacity: 0,
-                stagger: 0.04,
-                duration: 0.4,
-            }, 0.26);
     }
 
     initContact() {

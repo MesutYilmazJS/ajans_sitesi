@@ -8,6 +8,7 @@ import Portfolio from './classes/Portfolio.js';
 import SectionAnimations from './classes/SectionAnimations.js';
 import InteractiveCards from './classes/InteractiveCards.js';
 import ContactForm from './classes/ContactForm.js';
+import Testimonials from './classes/Testimonials.js';
 
 class App {
     constructor() {
@@ -51,6 +52,9 @@ class App {
         
         // Kartların (Hizmet, Portfolyo, Oyun vb.) üzerindeki 3D Tilt ve hover (üzerine gelme) efektlerini uygular
         this.interactiveCards = new InteractiveCards();
+        
+        // Referanslar (Testimonials) için sonsuz kayan (marquee) animasyonunu yönetir
+        this.testimonials = new Testimonials();
         
         // İletişim formunun sayfa yenilenmeden (AJAX/Fetch) gönderilmesini sağlar
         this.contactForm = new ContactForm();
