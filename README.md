@@ -1,5 +1,7 @@
 # 🚀 MOTI | Digital Creative Agency Website
 
+🌐 **Canlı Demo:** [https://mesutyilmazjs.github.io/ajans_sitesi/](https://mesutyilmazjs.github.io/ajans_sitesi/)
+
 MOTI, web tasarımı, fullstack geliştirme ve mobil oyun alanlarında hizmet veren dijital bir kreatif ajans için tasarlanmış modern, yüksek performanslı ve etkileşimli bir web sitesi şablonudur.
 
 Sistem, ES6+ nesne yönelimli (OOP) JavaScript mimarisi, GSAP ScrollTrigger animasyonları, Lenis pürüzsüz kaydırma motoru ve dinamik CSS tema yönetimi (Dark/Light Mode) ile inşa edilmiştir.
