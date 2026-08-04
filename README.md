@@ -6,7 +6,6 @@ MOTI, web tasarımı, fullstack geliştirme ve mobil oyun alanlarında hizmet ve
 
 Sistem, ES6+ nesne yönelimli (OOP) JavaScript mimarisi, GSAP ScrollTrigger animasyonları, Lenis pürüzsüz kaydırma motoru ve dinamik CSS tema yönetimi (Dark/Light Mode) ile inşa edilmiştir.
 
----
 
 ## ✨ Öne Çıkan Özellikler
 
