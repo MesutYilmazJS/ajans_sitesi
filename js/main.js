@@ -68,10 +68,16 @@ class App {
     }
 
     initLucideIcons() {
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined' && typeof lucide.createIcons === 'function') {
+            lucide.createIcons();
+        } else {
+            console.warn('Lucide kütüphanesi yüklenemedi. İkonlar atlanıyor.');
+        }
 
         window.addEventListener('load', () => {
-            ScrollTrigger.refresh();
+            if (typeof ScrollTrigger !== 'undefined') {
+                ScrollTrigger.refresh();
+            }
         });
     }
 }
